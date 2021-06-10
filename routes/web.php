@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', fn () => view('home'));
+Route::redirect('/things/1', '/things/1/view');
+Route::get('/things/1/view', fn () => view('thing'));
+Route::post('/things/1', fn () => view('success'))->name('success');
